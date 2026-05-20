@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan - Ilmu Komunikasi Universitas Mataram</title>
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { unramBlue: '#0c2e60', unramYellow: '#fdbd10', unramLight: '#f4f6f9', dangerRed: '#ef4444' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Merriweather', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { overflow: hidden; margin: 0; padding: 0; background-color: #f4f6f9; }
+        .nav-item::after { content: ''; display: block; width: 0; height: 2px; background: #fdbd10; transition: width .3s; }
+        .nav-item:hover::after, .nav-item.active::after { width: 100%; }
+        .typewriter-cursor { display: inline-block; width: 3px; height: 1em; background-color: #0c2e60; animation: blink 0.75s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .bg-pattern { background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 20px 20px; }
+        .slide-content { height: 100%; padding-top: 4rem; padding-bottom: 2rem; display: flex; flex-direction: column; justify-content: center; }
+        .vs-badge { box-shadow: 0 0 0 6px #fff; }
+        
+        /* SISTEM ANIMASI KUSTOM SLIDER */
+        .anim-item { opacity: 0; filter: blur(10px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .active-slide .anim-item { opacity: 1; filter: blur(0); }
+        .anim-fade-up { transform: translateY(40px); } .active-slide .anim-fade-up { transform: translateY(0); }
+        .anim-fade-down { transform: translateY(-40px); } .active-slide .anim-fade-down { transform: translateY(0); }
+        .anim-zoom-in { transform: scale(0.8); } .active-slide .anim-zoom-in { transform: scale(1); }
+        .anim-slide-left { transform: translateX(50px); } .active-slide .anim-slide-left { transform: translateX(0); }
+        .anim-slide-right { transform: translateX(-50px); } .active-slide .anim-slide-right { transform: translateX(0); }
+        
+        .d-100 { transition-delay: 100ms; } .d-200 { transition-delay: 200ms; } .d-300 { transition-delay: 300ms; }
+        .d-400 { transition-delay: 400ms; } .d-500 { transition-delay: 500ms; } .d-600 { transition-delay: 600ms; }
+        
+        /* ANIMASI MORPHING KHUSUS */
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+        .anim-morph { animation: morph 6s ease-in-out infinite; overflow: hidden; }
+        .anim-morph-fast { animation: morph 4s ease-in-out infinite reverse; overflow: hidden; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased selection:bg-unramYellow selection:text-unramBlue">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-white z-[9999] flex flex-col justify-center items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-28 h-28 mb-6 animate-pulse">
+        <div class="h-8 flex items-center">
+            <span id="typewriter-text" class="text-unramBlue font-heading font-bold text-xl md:text-2xl"></span>
+            <span class="typewriter-cursor"></span>
+        </div>
+    </div>
+
+    <!-- Navbar Fixed -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm" id="navbar">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-10 h-10 object-contain anim-morph-fast shadow-md">
+                    <div class="flex flex-col justify-center text-unramBlue" style="font-family: 'Times New Roman', Times, serif;">
+                        <span class="text-[10px] font-bold leading-none mb-0.5">Program Studi</span>
+                        <h1 class="font-bold text-sm leading-none mb-0.5">Ilmu Komunikasi</h1>
+                        <p class="text-[10px] font-bold tracking-wide leading-none">Universitas Mataram</p>
+                    </div>
+                </div>
+                <div class="hidden lg:flex space-x-8 text-sm font-semibold text-gray-700">
+                    <a href="pendahuluan.html" class="nav-item hover:text-unramBlue py-2">PENDAHULUAN</a>
+                    <a href="pustaka.html" class="nav-item hover:text-unramBlue py-2">PUSTAKA</a>
+                    <a href="metode.html" class="nav-item hover:text-unramBlue py-2">METODE</a>
+                    <a href="pembahasan.html" class="nav-item active text-unramBlue py-2">PEMBAHASAN</a>
+                    <a href="/penutup" class="nav-item hover:text-unramBlue py-2">PENUTUP</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullpage Slider Wrapper -->
+    <div class="w-full h-screen overflow-hidden relative">
+        <div id="sections-container" class="transition-transform duration-1000 ease-in-out w-full h-full absolute top-0 left-0">
+            
+            <!-- Slide 1: Klaim vs Fakta -->
+            <section class="section-slide h-screen w-full relative bg-pattern">
+                <div class="container mx-auto px-4 lg:px-8 max-w-7xl slide-content">
+                    <div class="text-center mb-6">
+                        <h2 class="anim-item anim-fade-down d-100 text-3xl font-bold text-unramBlue font-heading mb-1">Konstruksi Realitas Sosial</h2>
+                        <p class="anim-item anim-fade-down d-200 text-gray-500 font-medium italic">Klaim TVRI <span class="text-dangerRed mx-1 font-bold">Lawan</span> Fakta Lapangan</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[65vh] items-center">
+                        <!-- Image left morphing -->
+                        <div class="anim-item anim-slide-right d-300 lg:col-span-5 h-[50vh] hidden md:flex items-center justify-center p-2">
+                            <div class="w-full h-full relative anim-morph overflow-hidden shadow-2xl border-4 border-white">
+                                <img src="https://img.antaranews.com/cache/1200x800/2016/02/20160215antarafoto-sampah-musiman-pantai-kuta-150216-wra-1.jpg.webp" alt="Realitas" class="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000">
+                            </div>
+                        </div>
+                        
+                        <!-- VS Cards Right -->
+                        <div class="lg:col-span-7 flex flex-col gap-6 justify-center">
+                            <!-- Labengki -->
+                            <div class="anim-item anim-slide-left d-400 bg-white rounded-3xl shadow-lg border border-gray-100 flex overflow-hidden group hover:shadow-xl transition-all">
+                                <div class="w-1/2 p-6 bg-blue-50/50 text-right pr-10 relative">
+                                    <div class="w-10 h-10 absolute left-4 top-4 bg-blue-100 text-unramBlue rounded-full flex items-center justify-center anim-morph opacity-50"><i class="fas fa-bullhorn text-sm"></i></div>
+                                    <h4 class="font-bold text-unramBlue mb-1">Klaim Labengki</h4>
+                                    <p class="text-[11px] text-gray-600 leading-relaxed">Diklaim sebagai teladan harmoni alam dan destinasi sempurna.</p>
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-8 h-8 bg-gray-900 text-unramYellow rounded-full flex items-center justify-center text-[10px] font-bold vs-badge z-10 anim-morph-fast">VS</div>
+                                </div>
+                                <div class="w-1/2 p-6 bg-red-50/50 pl-10 border-l border-gray-200 relative">
+                                    <h4 class="font-bold text-dangerRed mb-1"><i class="fas fa-exclamation-triangle text-xs mr-1"></i>Fakta Suku Bajo</h4>
+                                    <p class="text-[11px] text-gray-600 leading-relaxed">Ancaman mematikan dari limbah nikel terhadap ekosistem laut.</p>
+                                </div>
+                            </div>
+
+                            <!-- Pantai Padang -->
+                            <div class="anim-item anim-slide-left d-500 bg-white rounded-3xl shadow-lg border border-gray-100 flex overflow-hidden group hover:shadow-xl transition-all">
+                                <div class="w-1/2 p-6 bg-blue-50/50 text-right pr-10 relative">
+                                    <div class="w-10 h-10 absolute left-4 top-4 bg-blue-100 text-unramBlue rounded-full flex items-center justify-center anim-morph-fast opacity-50"><i class="fas fa-umbrella-beach text-sm"></i></div>
+                                    <h4 class="font-bold text-unramBlue mb-1">Klaim Padang</h4>
+                                    <p class="text-[11px] text-gray-600 leading-relaxed">Dibingkai sebagai destinasi wisata bersih dan tertata rapi.</p>
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-8 h-8 bg-gray-900 text-unramYellow rounded-full flex items-center justify-center text-[10px] font-bold vs-badge z-10 anim-morph">VS</div>
+                                </div>
+                                <div class="w-1/2 p-6 bg-red-50/50 pl-10 border-l border-gray-200 relative">
+                                    <h4 class="font-bold text-dangerRed mb-1"><i class="fas fa-dumpster text-xs mr-1"></i>Fakta Lapangan</h4>
+                                    <p class="text-[11px] text-gray-600 leading-relaxed">Krisis 640 ton sampah dan konflik panas penertiban PKL secara paksa.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 2: Dimensi Teks -->
+            <section class="section-slide h-screen w-full relative bg-unramLight">
+                <div class="absolute top-10 right-10 w-64 h-64 bg-unramBlue/5 anim-morph-fast filter blur-2xl"></div>
+                <div class="container mx-auto px-4 lg:px-8 max-w-6xl slide-content relative z-10">
+                    <div class="text-center mb-6">
+                        <h2 class="anim-item anim-fade-down d-100 text-3xl font-bold text-unramBlue font-heading">Analisis Dimensi Teks</h2>
+                    </div>
+                    <!-- 5 items centered -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div class="anim-item anim-zoom-in d-200 bg-white p-5 rounded-3xl shadow-lg border-t-4 border-unramBlue hover:-translate-y-2 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 flex items-center justify-center anim-morph text-unramBlue mb-3"><i class="fas fa-comment-dots text-lg"></i></div>
+                            <h3 class="font-bold text-gray-900 mb-1 text-sm">Modalitas</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Penggunaan kata <i>pasti, harus, akan</i> untuk menciptakan kepastian mutlak.</p>
+                        </div>
+                        <div class="anim-item anim-zoom-in d-300 bg-white p-5 rounded-3xl shadow-lg border-t-4 border-unramYellow hover:-translate-y-2 transition-transform">
+                            <div class="w-12 h-12 bg-yellow-50 flex items-center justify-center anim-morph-fast text-unramYellow mb-3"><i class="fas fa-feather-alt text-lg"></i></div>
+                            <h3 class="font-bold text-gray-900 mb-1 text-sm">Eufemisme</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Penghalusan istilah seperti <i>"infrastruktur kurang merata"</i> pengganti jalan rusak.</p>
+                        </div>
+                        <div class="anim-item anim-zoom-in d-400 bg-white p-5 rounded-3xl shadow-lg border-t-4 border-unramBlue hover:-translate-y-2 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 flex items-center justify-center anim-morph text-unramBlue mb-3"><i class="fas fa-user-slash text-lg"></i></div>
+                            <h3 class="font-bold text-gray-900 mb-1 text-sm">Depersonalisasi</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Menghilangkan subjek/aktor manusia dalam narasi untuk cuci tangan.</p>
+                        </div>
+                        <div class="anim-item anim-zoom-in d-500 bg-white p-5 rounded-3xl shadow-lg border-t-4 border-unramYellow md:col-start-1 md:ml-auto w-full md:w-[120%] lg:w-full hover:-translate-y-2 transition-transform">
+                            <div class="w-12 h-12 bg-yellow-50 flex items-center justify-center anim-morph text-unramYellow mb-3"><i class="fas fa-camera-retro text-lg"></i></div>
+                            <h3 class="font-bold text-gray-900 mb-1 text-sm">Visual Selektif</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed"><i>Wide-shot</i> yang menonjolkan keindahan dan secara licik menyembunyikan kumuh.</p>
+                        </div>
+                        <div class="anim-item anim-zoom-in d-600 bg-white p-5 rounded-3xl shadow-lg border-t-4 border-unramBlue md:col-start-2 md:mr-auto w-full md:w-[120%] lg:w-full hover:-translate-y-2 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 flex items-center justify-center anim-morph-fast text-unramBlue mb-3"><i class="fas fa-redo-alt text-lg"></i></div>
+                            <h3 class="font-bold text-gray-900 mb-1 text-sm">Repetisi</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Menegaskan narasi melalui frasa eksklusif untuk memaksakan doktrin optimisme.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Praktik Wacana -->
+            <section class="section-slide h-screen w-full relative bg-white bg-pattern">
+                <div class="container mx-auto px-4 lg:px-8 max-w-5xl slide-content">
+                    <div class="text-center mb-10">
+                        <h2 class="anim-item anim-fade-down d-100 text-3xl font-bold text-unramBlue font-heading">Analisis Praktik Wacana</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="anim-item anim-slide-right d-200 bg-unramLight p-6 rounded-3xl shadow-md border-l-4 border-unramBlue flex items-center gap-5 hover:bg-blue-50 transition-colors">
+                            <div class="w-14 h-14 bg-white flex items-center justify-center anim-morph text-unramBlue shadow-sm"><i class="fas fa-sitemap text-xl"></i></div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 mb-1">Instruksi Top-Down</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">Pemilihan judul optimisme mengunci angle redaksional sejak awal.</p>
+                            </div>
+                        </div>
+                        <div class="anim-item anim-slide-left d-300 bg-unramLight p-6 rounded-3xl shadow-md border-l-4 border-unramYellow flex items-center gap-5 hover:bg-yellow-50 transition-colors">
+                            <div class="w-14 h-14 bg-white flex items-center justify-center anim-morph-fast text-unramYellow shadow-sm"><i class="fas fa-user-tie text-xl"></i></div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 mb-1">Kooptasi Pakar</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">Memoderasi peneliti independen untuk memvalidasi angka pemerintah.</p>
+                            </div>
+                        </div>
+                        <div class="anim-item anim-slide-right d-400 bg-unramLight p-6 rounded-3xl shadow-md border-l-4 border-unramYellow flex items-center gap-5 hover:bg-yellow-50 transition-colors">
+                            <div class="w-14 h-14 bg-white flex items-center justify-center anim-morph text-unramYellow shadow-sm"><i class="fas fa-door-closed text-xl"></i></div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 mb-1">Intervensi Gatekeeping</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">Host memotong isu kritis dan mengarahkan kembali ke narasi solusi.</p>
+                            </div>
+                        </div>
+                        <div class="anim-item anim-slide-left d-500 bg-unramLight p-6 rounded-3xl shadow-md border-l-4 border-unramBlue flex items-center gap-5 hover:bg-blue-50 transition-colors">
+                            <div class="w-14 h-14 bg-white flex items-center justify-center anim-morph-fast text-unramBlue shadow-sm"><i class="fas fa-tv text-xl"></i></div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 mb-1">Genre Mixing</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">Membungkus doktrin ekonomi dengan format hiburan visual ringan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Praktik Sosial (Ideologi) -->
+            <section class="section-slide h-screen w-full relative bg-[#081f42]">
+                <div class="container mx-auto px-4 lg:px-8 max-w-7xl slide-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 h-[65vh] items-center">
+                        <div class="lg:col-span-6 flex flex-col justify-center">
+                            <h2 class="anim-item anim-fade-down d-100 text-3xl font-bold text-white font-heading mb-8">Analisis Praktik Sosial</h2>
+                            
+                            <div class="anim-item anim-slide-right d-200 bg-white/10 p-6 rounded-3xl border border-white/20 mb-6 backdrop-blur-sm relative overflow-hidden group">
+                                <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-unramYellow/20 anim-morph z-0"></div>
+                                <h3 class="text-lg font-bold text-unramYellow mb-2 relative z-10"><i class="fas fa-exclamation-circle mr-2"></i>Kontradiksi Narasi</h3>
+                                <p class="text-gray-200 text-sm leading-relaxed relative z-10">
+                                    Kontradiksi antara slogan "Raun Waklah" dengan krisis sampah dan ancaman tambang nikel di ruang hidup Suku Bajo.
+                                </p>
+                            </div>
+                            
+                            <div class="anim-item anim-slide-right d-300 bg-white/10 p-6 rounded-3xl border border-white/20 backdrop-blur-sm relative overflow-hidden group">
+                                <div class="absolute -left-4 -top-4 w-24 h-24 bg-blue-400/20 anim-morph-fast z-0"></div>
+                                <h3 class="text-lg font-bold text-blue-300 mb-2 relative z-10"><i class="fas fa-industry mr-2"></i>Ideologi Dominan</h3>
+                                <p class="text-gray-200 text-sm leading-relaxed relative z-10">
+                                    Ideologi yang dominan adalah <strong class="text-white">Developmentalisme</strong> yang memprioritaskan pertumbuhan ekonomi di atas realitas sosial.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Image Card Right Morphing -->
+                        <div class="anim-item anim-zoom-in d-500 lg:col-span-6 h-[50vh] hidden md:flex items-center justify-center p-4">
+                            <div class="w-full h-full relative anim-morph overflow-hidden shadow-2xl border-2 border-white/20">
+                                <img src="https://koral.info/wp-content/uploads/2022/02/db89542c-afdc-446b-aae6-cecfa711f18f_169.jpg" alt="Ideologi Pembangunan" class="w-full h-full object-cover mix-blend-overlay opacity-80 bg-gray-900 scale-110 hover:scale-100 transition-transform duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Footer -->
+            <section class="section-slide h-screen w-full relative bg-[#051124]">
+                <div class="container mx-auto px-4 lg:px-8 max-w-6xl slide-content">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="anim-item anim-slide-right d-100">
+                            <div class="flex items-center gap-3 mb-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" class="w-10 h-10 anim-morph bg-white p-1">
+                                <div><h3 class="text-white font-bold text-sm uppercase">Ilmu Komunikasi</h3><p class="text-unramYellow text-[10px]">Universitas Mataram</p></div>
+                            </div>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Menjadi program studi ilmu komunikasi yang inklusif, berbasis riset, tanggap terhadap teknologi media.</p>
+                        </div>
+                        <div class="anim-item anim-fade-up d-300">
+                            <h4 class="text-white font-bold text-sm mb-4">Tautan Universitas</h4>
+                            <ul class="space-y-2 text-xs text-gray-400">
+                                <li><i class="fas fa-chevron-right text-[10px] text-unramYellow mr-2"></i> Website Utama UNRAM</li>
+                                <li><i class="fas fa-chevron-right text-[10px] text-unramYellow mr-2"></i> Fakultas Hukum, ISIP</li>
+                            </ul>
+                        </div>
+                        <div class="anim-item anim-slide-left d-500">
+                            <h4 class="text-white font-bold text-sm mb-4">Hubungi Kami</h4>
+                            <ul class="space-y-2 text-xs text-gray-400">
+                                <li><i class="fas fa-map-marker-alt text-unramYellow w-4"></i> Jl. Majapahit No. 62 Mataram</li>
+                                <li><i class="fas fa-phone-alt text-unramYellow w-4"></i> (0376) 232323</li>
+                                <li><i class="fas fa-envelope text-unramYellow w-4"></i> komunikasi@unram.ac.id</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="anim-item anim-fade-up d-700 border-t border-gray-800 mt-10 pt-6 text-center text-[10px] text-gray-500">
+                        &copy; 2026 Program Studi Ilmu Komunikasi Universitas Mataram.
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <button id="floating-arrow" class="fixed bottom-8 right-8 w-14 h-14 flex justify-center items-center bg-unramYellow text-unramBlue hover:bg-white transition-all shadow-[0_0_20px_rgba(253,189,16,0.5)] z-50 cursor-pointer hidden anim-morph">
+        <i class="fas fa-arrow-down text-xl"></i>
+    </button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const text = "Program Studi Ilmu Komunikasi";
+            const typeEl = document.getElementById("typewriter-text");
+            const preloader = document.getElementById("preloader");
+            const arrowBtn = document.getElementById('floating-arrow');
+            let i = 0;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    typeEl.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 30);
+                } else {
+                    setTimeout(() => {
+                        preloader.style.opacity = '0';
+                        preloader.style.transition = 'opacity 0.5s ease';
+                        setTimeout(() => {
+                            preloader.style.display = 'none';
+                            arrowBtn.classList.remove('hidden');
+                            updateActiveSlide(0);
+                        }, 500);
+                    }, 400);
+                }
+            }
+            setTimeout(typeWriter, 200);
+
+            const container = document.getElementById('sections-container');
+            const sections = document.querySelectorAll('.section-slide');
+            let currentIndex = 0;
+
+            function updateActiveSlide(index) {
+                sections.forEach((sec, idx) => {
+                    if (idx === index) sec.classList.add('active-slide');
+                    else sec.classList.remove('active-slide');
+                });
+            }
+
+            arrowBtn.addEventListener('click', () => {
+                if (currentIndex < sections.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                container.style.transform = `translateY(-${currentIndex * 100}vh)`;
+                updateActiveSlide(currentIndex);
+                
+                if (currentIndex === sections.length - 1) {
+                    arrowBtn.innerHTML = '<i class="fas fa-arrow-up text-xl"></i>';
+                } else {
+                    arrowBtn.innerHTML = '<i class="fas fa-arrow-down text-xl"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

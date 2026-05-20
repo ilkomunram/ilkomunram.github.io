@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program Studi Ilmu Komunikasi</title>
+    <title>Ilmu Komunikasi - Universitas Mataram</title>
+    
     <!-- Menambahkan Favicon -->
     <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,10 +27,13 @@
             }
         }
     </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Library Animasi AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         .hero-bg {
             background-image: url('https://ilkom.unram.ac.id/wp-content/uploads/2022/02/Gedung-Soebiyanto-Large.jpeg');
@@ -59,6 +64,7 @@
         @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
+
 <body class="font-sans bg-white text-gray-800 antialiased flex flex-col min-h-screen">
 
     <!-- Layar Preloader -->
@@ -214,12 +220,12 @@
                                 <span><i class="far fa-folder mr-1"></i> Ujian Skripsi</span>
                             </div>
                             <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-unramBlue transition leading-snug line-clamp-3">
-                                <a href="#">Sidang Skripsi : Konstruksi Berita Pariwisata Di TVRI</a>
+                                <a href="/pendahuluan">Sidang Skripsi : Konstruksi Berita Pariwisata Di TVRI</a>
                             </h3>
                             <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
                                 Mataram, FHISIP Unram — Bagian paling krusial dalam sebuah penelitian ilmiah adalah kemampuannya menjawab pertanyaan mengapa isu ini penting untuk diteliti pada ruang dan waktu saat ini. Latar belakang skripsi ini berpijak pada sebuah paradoks fundamental...
                             </p>
-                            <a href="/pendahuluan.html" class="text-unramBlue font-semibold text-sm hover:text-unramYellow transition mt-auto flex items-center">Baca Selengkapnya <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+                            <a href="/pendahuluan" class="text-unramBlue font-semibold text-sm hover:text-unramYellow transition mt-auto flex items-center">Baca Selengkapnya <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
                         </div>
                     </div>
                 </div>
@@ -303,7 +309,7 @@
         </div>
     </footer>
 
-    <!-- Script AOS & Preloader -->
+    <!-- Script AOS & JS Logic -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -349,6 +355,7 @@
             setTimeout(typeWriter, 300); // Mulai ngetik setelah render
         });
 
+        // Toggle Mobile Menu
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
@@ -356,10 +363,11 @@
             menu.classList.toggle('hidden');
         });
 
+        // Navbar Scroll Effect (Optimized via element caching)
+        const navbar = document.getElementById('navbar');
+        const navbarInner = document.getElementById('navbar-inner');
+        
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const navbarInner = document.getElementById('navbar-inner');
-            
             if (window.scrollY > 10) {
                 navbar.classList.add('shadow-md');
                 if (navbarInner) {

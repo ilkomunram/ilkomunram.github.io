@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendahuluan - Program Studi Ilmu Komunikasi</title>
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        unramBlue: '#0c2e60',
+                        unramYellow: '#fdbd10',
+                        unramLight: '#f4f6f9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .nav-item::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fdbd10;
+            transition: width .3s;
+        }
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 100%;
+        }
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #0c2e60;
+            animation: blink 0.75s step-end infinite;
+            vertical-align: bottom;
+            margin-left: 2px;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Layar Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-white z-[9999] flex flex-col justify-center items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-28 h-28 mb-6 animate-pulse">
+        <div class="h-8 flex items-center">
+            <span id="typewriter-text" class="text-unramBlue font-heading font-bold text-xl md:text-2xl"></span>
+            <span class="typewriter-cursor"></span>
+        </div>
+    </div>
+
+    <!-- Navbar FIXED (Melayang di atas tanpa menggeser konten) -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-gray-200" id="navbar">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center py-5 transition-all duration-300" id="navbar-inner">
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-12 h-12 object-contain">
+                    <div class="flex flex-col justify-center text-black" style="font-family: 'Times New Roman', Times, serif;">
+                        <span class="text-[10px] md:text-xs font-bold leading-none mb-0.5 capitalize">Program Studi</span>
+                        <h1 class="font-bold text-base md:text-lg leading-none capitalize mb-0.5">Ilmu Komunikasi</h1>
+                        <p class="text-[10px] md:text-xs font-bold tracking-wide leading-none capitalize">Universitas Mataram</p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex space-x-8 text-sm font-semibold text-black">
+                    <a href="pendahuluan.html" class="nav-item text-unramBlue active py-2">PENDAHULUAN</a>
+                    <a href="pustaka.html" class="nav-item hover:text-unramBlue py-2">PUSTAKA</a>
+                    <a href="metode.html" class="nav-item hover:text-unramBlue py-2">METODE</a>
+                    <a href="pembahasan.html" class="nav-item hover:text-unramBlue py-2">PEMBAHASAN</a>
+                    <a href="penutup.html" class="nav-item hover:text-unramBlue py-2">PENUTUP</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="text-black hover:text-unramYellow transition"><i class="fas fa-search"></i></button>
+                    <button id="mobile-menu-btn" class="lg:hidden text-2xl text-black focus:outline-none"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-200 border-t border-gray-300 shadow-inner absolute w-full left-0">
+            <div class="flex flex-col px-4 py-2 space-y-1 font-medium text-black">
+                <a href="pendahuluan.html" class="block py-3 border-b border-gray-300 text-unramBlue">PENDAHULUAN</a>
+                <a href="pustaka.html" class="block py-3 border-b border-gray-300 hover:text-unramBlue">PUSTAKA</a>
+                <a href="metode.html" class="block py-3 border-b border-gray-300 hover:text-unramBlue">METODE</a>
+                <a href="pembahasan.html" class="block py-3 border-b border-gray-300 hover:text-unramBlue">PEMBAHASAN</a>
+                <a href="penutup.html" class="block py-3 hover:text-unramBlue">PENUTUP</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Area Konten Pendahuluan -->
+    <main class="flex-grow">
+        
+        <!-- Bagian 1: EXACTLY 100vh (h-screen) -->
+        <!-- pt-32 memastikan konten mulai di bawah header, pb-24 mencegah konten menabrak panah -->
+        <section id="bagian1" class="h-screen w-full flex flex-col justify-center items-center px-4 lg:px-8 bg-white text-center relative overflow-hidden pt-28 md:pt-32 pb-20 md:pb-24">
+            
+            <h1 class="text-3xl md:text-4xl lg:text-[40px] font-bold text-unramBlue mb-4 md:mb-6 font-heading leading-snug tracking-wide uppercase max-w-4xl" data-aos="fade-up" data-aos-delay="100">
+                KONSTRUKSI BERITA PARIWISATA<br>DI TVRI
+            </h1>
+            
+            <h2 class="text-base md:text-lg lg:text-xl text-gray-700 mb-10 md:mb-16 font-medium max-w-3xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                Analisis Wacana Kritis<br>Program Jendela Negeri Episode Optimisme Wisata di 2025
+            </h2>
+            
+            <div class="mb-10 md:mb-16" data-aos="fade-up" data-aos-delay="300">
+                <p class="text-gray-500 mb-2 text-sm md:text-base">Oleh</p>
+                <p class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-1">Badrul Muhayat</p>
+                <p class="text-gray-600 font-semibold text-sm md:text-base tracking-widest">L1B020012</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 w-full max-w-6xl" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <p class="text-gray-500 mb-2 text-xs md:text-sm uppercase tracking-wider">Dosen Pembimbing Utama</p>
+                    <p class="font-bold text-gray-900 text-base md:text-lg lg:text-xl leading-tight">Hartin Nur Khusnia, S.IP., M.A.</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 mb-2 text-xs md:text-sm uppercase tracking-wider">Dosen Pembimbing Pendamping</p>
+                    <p class="font-bold text-gray-900 text-base md:text-lg lg:text-xl leading-tight">Muhlis, S.Sos.I., M.A.</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 mb-2 text-xs md:text-sm uppercase tracking-wider">Dosen Penguji Skripsi</p>
+                    <p class="font-bold text-gray-900 text-base md:text-lg lg:text-xl leading-tight">Yulanda Trisula Sidarta Yohanes, S.I.Kom., M.I.Kom.</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Bagian 2: EXACTLY 100vh (h-screen) -->
+        <section id="bagian2" class="h-screen w-full flex flex-col justify-center items-center px-4 lg:px-8 bg-unramLight text-center relative overflow-hidden pt-28 md:pt-32 pb-20 md:pb-24">
+            
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-unramBlue mb-6 md:mb-10 font-heading tracking-wide uppercase" data-aos="fade-up">Cuplikan Tayangan Optimisme Wisata di 2025</h2>
+            
+            <!-- Container Video -->
+            <div class="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl z-10 relative bg-gray-900 flex flex-col items-center justify-center" data-aos="zoom-in" data-aos-delay="200">
+                
+                <!-- Pesan Fallback (Akan terlihat jika Iframe diblokir layar preview) -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-0 p-6 text-center">
+                    <i class="fab fa-youtube text-5xl md:text-6xl text-red-600 mb-4"></i>
+                    <p class="text-sm md:text-base text-gray-300 mb-2">Video tidak dapat diputar di dalam layar Preview ini.</p>
+                    <a href="https://res.cloudinary.com/ddtgjvetf/video/upload/v1779301189/0521_fke7vi.mp4" target="_blank" class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition shadow-lg mt-2">
+                        Tonton di YouTube <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Iframe Video (Akan menutupi pesan di atas jika dibuka di luar preview) -->
+                <iframe class="w-full h-full absolute inset-0 z-10" src="https://www.youtube.com/embed/wt9AJJAC9Cg?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                
+            </div>
+
+        </section>
+
+        <!-- Bagian 3: EXACTLY 100vh (h-screen) - Layout Cards -->
+        <section id="bagian3" class="h-screen w-full flex flex-col justify-center items-center px-4 lg:px-8 bg-white text-center relative overflow-hidden pt-28 md:pt-32 pb-20 md:pb-24">
+            
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-unramBlue mb-10 md:mb-16 font-heading tracking-wide uppercase" data-aos="fade-up">Mengapa Meneliti Berita Pariwisata TVRI?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl">
+                <!-- Card 1 -->
+                <div class="bg-unramLight p-6 md:p-10 rounded-xl shadow-lg border-b-4 border-unramYellow hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-broadcast-tower text-4xl md:text-5xl text-unramBlue mb-6"></i>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 leading-snug">Posisi TVRI Sebagai Lembaga Penyiaran Publik</h3>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-unramLight p-6 md:p-10 rounded-xl shadow-lg border-b-4 border-unramYellow hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center justify-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-balance-scale-left text-4xl md:text-5xl text-unramBlue mb-6"></i>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 leading-snug">Realitas Narasi Optimisme 2025 vs Kondisi Lapangan</h3>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-unramLight p-6 md:p-10 rounded-xl shadow-lg border-b-4 border-unramYellow hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center justify-center" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-mask text-4xl md:text-5xl text-unramBlue mb-6"></i>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 leading-snug">Realitas Semu yang Menyeleksi dan Mengaburkan Fakta</h3>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Bagian 4: EXACTLY 100vh (h-screen) - Layout Kontras -->
+        <section id="bagian4" class="h-screen w-full flex flex-col justify-center items-center px-4 lg:px-12 bg-unramBlue text-center relative overflow-hidden pt-28 md:pt-32 pb-20 md:pb-24">
+            
+            <i class="fas fa-quote-left text-5xl md:text-7xl text-unramYellow opacity-40 mb-8" data-aos="zoom-in"></i>
+            
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-8 font-heading leading-tight max-w-5xl" data-aos="fade-up" data-aos-delay="200">
+                Bagaimana wacana pariwisata dikonstruksi dalam program Jendela Negeri episode <span class="text-unramYellow">Optimisme Wisata di 2025</span>?
+            </h2>
+            
+            <div class="w-24 h-2 bg-unramYellow mt-4 rounded-full" data-aos="fade-right" data-aos-delay="400"></div>
+
+        </section>
+
+    </main>
+
+    <footer id="footer" class="bg-[#081f42] text-gray-300 pt-16 pb-8 border-t-4 border-unramYellow mt-auto relative z-20">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-12 h-12 object-contain">
+                        <div class="flex flex-col justify-center">
+                            <span class="text-gray-400 text-[10px] font-semibold leading-none mb-0.5">Program Studi</span>
+                            <h3 class="text-white font-bold text-base leading-none uppercase font-heading mb-0.5">Ilmu Komunikasi</h3>
+                            <p class="text-unramYellow text-[10px] font-semibold leading-none">Universitas Mataram</p>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6 text-gray-400">
+                        Menjadi program studi ilmu komunikasi yang inklusif, berbasis riset, tanggap terhadap teknologi media, dan berdaya saing global demi memajukan nusa dan bangsa.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#112f5a] flex items-center justify-center hover:bg-unramYellow hover:text-unramBlue transition shadow-lg"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#112f5a] flex items-center justify-center hover:bg-unramYellow hover:text-unramBlue transition shadow-lg"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#112f5a] flex items-center justify-center hover:bg-unramYellow hover:text-unramBlue transition shadow-lg"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 font-heading relative inline-block">
+                        Tautan Universitas
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-unramYellow rounded"></span>
+                    </h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="https://unram.ac.id" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Website Utama UNRAM</a></li>
+                        <li><a href="https://fhisip.unram.ac.id" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Fakultas Hukum, ISIP</a></li>
+                        <li><a href="#" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> E-Learning UNRAM</a></li>
+                        <li><a href="#" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Perpustakaan Pusat</a></li>
+                        <li><a href="#" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Pendaftaran Mahasiswa Baru</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 font-heading relative inline-block">
+                        Hubungi Kami
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-unramYellow rounded"></span>
+                    </h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-unramYellow text-lg w-5 text-center"></i>
+                            <span class="leading-relaxed">Gedung Soebiyanto, Kampus Utama UNRAM<br>Jl. Majapahit No. 62 Mataram 83125<br>Nusa Tenggara Barat, Indonesia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-unramYellow text-lg w-5 text-center"></i>
+                            <span>(0376) 232323 / 0370-633007</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-unramYellow text-lg w-5 text-center"></i>
+                            <span>komunikasi@unram.ac.id</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 font-heading relative inline-block">
+                        Lokasi Kampus
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-unramYellow rounded"></span>
+                    </h4>
+                    <div class="w-full h-44 bg-gray-800 rounded-lg overflow-hidden border border-gray-700 relative group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Peta Lokasi" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition duration-300">
+                            <div class="bg-[#081f42]/80 px-4 py-2 rounded text-sm font-bold text-white flex items-center">
+                                <i class="fas fa-map-marked-alt mr-2"></i> Buka Peta
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700/50 pt-8 flex flex-col md:flex-row justify-center items-center text-xs text-gray-500 text-center">
+                <p>&copy; 2026 Program Studi Ilmu Komunikasi Universitas Mataram.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tombol Navigasi Mengambang Global -->
+    <button id="floating-arrow" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 w-10 h-10 flex justify-center items-center rounded-full bg-unramYellow text-unramBlue hover:bg-unramBlue hover:text-white transition-all duration-300 shadow-xl z-50 cursor-pointer opacity-0" aria-label="Lanjut ke bagian berikutnya">
+        <i class="fas fa-chevron-down text-sm md:text-base"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const text = "Program Studi Ilmu Komunikasi";
+            const typewriterElement = document.getElementById("typewriter-text");
+            const preloader = document.getElementById("preloader");
+            let i = 0;
+            const speed = 60;
+
+            document.body.style.overflow = 'hidden'; 
+
+            function typeWriter() {
+                if (i < text.length) {
+                    typewriterElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    setTimeout(() => {
+                        preloader.style.opacity = '0';
+                        preloader.style.transition = 'opacity 0.8s ease';
+                        
+                        setTimeout(() => {
+                            preloader.style.display = 'none';
+                            document.body.style.overflow = ''; 
+                            
+                            const aosAnimations = ['fade-up', 'fade-down', 'fade-left', 'fade-right', 'zoom-in', 'zoom-out', 'flip-up'];
+                            const elementsToAnimate = document.querySelectorAll('main > section > h1, main > section > h2, main > section > div, footer > div > div');
+                            
+                            elementsToAnimate.forEach(el => {
+                                if (!el.hasAttribute('data-aos')) {
+                                    const randomAnim = aosAnimations[Math.floor(Math.random() * aosAnimations.length)];
+                                    el.setAttribute('data-aos', randomAnim);
+                                }
+                            });
+                            
+                            AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+
+                            // Tampilkan panah mengambang setelah loading teks kelar
+                            document.getElementById('floating-arrow').classList.remove('opacity-0');
+                        }, 800);
+                    }, 500);
+                }
+            }
+            setTimeout(typeWriter, 300);
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Logika Panah Mengambang Global (Satu tombol untuk semua sesi)
+        const floatingArrow = document.getElementById('floating-arrow');
+        const scrollSections = ['bagian1', 'bagian2', 'bagian3', 'bagian4', 'footer'];
+
+        floatingArrow.addEventListener('click', () => {
+            const currentScroll = window.scrollY;
+            for (const id of scrollSections) {
+                const el = document.getElementById(id);
+                // Cari elemen yang posisinya masih di bawah scroll saat ini
+                if (el && el.offsetTop > currentScroll + 10) {
+                    window.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
+                    break;
+                }
+            }
+        });
+
+        // Navbar shadow effect & Sembunyikan panah jika sudah mencapai paling bawah
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+
+            // Hitung logika akhir halaman
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                floatingArrow.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                floatingArrow.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        });
+    </script>
+</body>
+</html>

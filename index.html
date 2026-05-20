@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Studi Ilmu Komunikasi</title>
+    <!-- Menambahkan Favicon -->
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        unramBlue: '#0c2e60',
+                        unramYellow: '#fdbd10',
+                        unramLight: '#f4f6f9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Library Animasi AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background-image: url('https://ilkom.unram.ac.id/wp-content/uploads/2022/02/Gedung-Soebiyanto-Large.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-item::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fdbd10;
+            transition: width .3s;
+        }
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        /* Kursor Animasi Ketik (Typewriter) */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #0c2e60;
+            animation: blink 0.75s step-end infinite;
+            vertical-align: bottom;
+            margin-left: 2px;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Layar Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-white z-[9999] flex flex-col justify-center items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-28 h-28 mb-6 animate-pulse">
+        <div class="h-8 flex items-center">
+            <span id="typewriter-text" class="text-unramBlue font-heading font-bold text-xl md:text-2xl"></span>
+            <span class="typewriter-cursor"></span>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div id="topbar" class="bg-unramYellow text-black text-xs py-4 hidden md:block relative z-50">
+        <div class="container mx-auto px-4 lg:px-8 flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span><i class="fas fa-envelope mr-2 text-black"></i> komunikasi@unram.ac.id</span>
+                <span><i class="fas fa-phone mr-2 text-black"></i> (0376) 232323</span>
+                <span><i class="fas fa-map-marker-alt mr-2 text-black"></i> Gedung Soebiyanto, Jl. Majapahit No. 62 Mataram</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-gray-700 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-gray-700 transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-gray-700 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-gray-700 transition"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar Sticky -->
+    <nav class="sticky top-0 w-full z-40 transition-all duration-300 bg-gray-200" id="navbar">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center py-6 transition-all duration-300" id="navbar-inner">
+                <!-- Logo Unram -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-12 h-12 object-contain">
+                    <div class="flex flex-col justify-center text-black" style="font-family: 'Times New Roman', Times, serif;">
+                        <span class="text-[10px] md:text-xs font-bold leading-none mb-0.5 capitalize">Program Studi</span>
+                        <h1 class="font-bold text-base md:text-lg leading-none capitalize mb-0.5">Ilmu Komunikasi</h1>
+                        <p class="text-[10px] md:text-xs font-bold tracking-wide leading-none capitalize">Universitas Mataram</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 text-sm font-semibold text-black">
+                    <a href="pendahuluan.html" class="nav-item hover:text-unramBlue py-2">PENDAHULUAN</a>
+                    <a href="pustaka.html" class="nav-item hover:text-unramBlue py-2">PUSTAKA</a>
+                    <a href="metode.html" class="nav-item hover:text-unramBlue py-2">METODE</a>
+                    <a href="pembahasan.html" class="nav-item hover:text-unramBlue py-2">PEMBAHASAN</a>
+                    <a href="penutup.html" class="nav-item hover:text-unramBlue py-2">PENUTUP</a>
+                </div>
+
+                <!-- Search & Mobile Toggle -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-black hover:text-unramYellow transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="lg:hidden text-2xl text-black focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-200 border-t border-gray-300 shadow-inner absolute w-full left-0">
+            <div class="flex flex-col px-4 py-2 space-y-1 font-medium text-black">
+                <a href="pendahuluan.html" class="block py-3 border-b border-gray-300 hover:text-unramBlue">PENDAHULUAN</a>
+                <a href="pustaka.html" class="block py-3 border-b border-gray-300 hover:text-unramBlue">PUSTAKA</a>
+                <a href="metode.html" class="block py-3 border-b border-gray-300 hover:text-unramBlue">METODE</a>
+                <a href="pembahasan.html" class="block py-3 border-b border-gray-300 hover:text-unramBlue">PEMBAHASAN</a>
+                <a href="penutup.html" class="block py-3 hover:text-unramBlue">PENUTUP</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="w-full h-[60vh] md:h-[70vh] hero-bg"></section>
+
+        <!-- Selamat Datang Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <img src="https://unram.ac.id/wp-content/uploads/2025/06/Prodi-Ilmu-Komunikasi-Unram-Raih-Akreditas-Unggul-1200x900.jpg" alt="Selamat Datang" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="inline-block w-16 h-1.5 bg-unramYellow mb-4 rounded"></div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-unramBlue mb-6 font-heading leading-snug">Selamat Datang di Portal Resmi Ilmu Komunikasi Universitas Mataram</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed text-justify">
+                        Program Studi Ilmu Komunikasi Fakultas Hukum, Ilmu Sosial, dan Ilmu Politik Universitas Mataram berkomitmen penuh untuk menyelenggarakan pendidikan bermutu tinggi. Kami mengedepankan kurikulum yang responsif terhadap dinamika teknologi komunikasi massa dan media digital saat ini.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Berita & Informasi -->
+        <section class="py-16 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-unramBlue font-heading">Berita & Informasi</h2>
+                    <div class="w-16 h-1 bg-unramYellow mx-auto mt-4 rounded"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Berita 1 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group flex flex-col h-full border border-gray-100">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://ilkom.unram.ac.id/wp-content/uploads/2026/04/Mahasiswi-Ilmu-Komunikasi-Universitas-Mataram-Raih-Juara-II-pada-Pemilihan-Mahasiswa-Berprestasi-Tingkat-Fakultas.jpeg" alt="Berita 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center text-xs text-gray-500 mb-3 space-x-4">
+                                <span><i class="far fa-calendar-alt mr-1"></i> 04 Apr 2026</span>
+                                <span><i class="far fa-folder mr-1"></i> Prestasi</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-unramBlue transition leading-snug line-clamp-3">
+                                <a href="#">Mahasiswi Ilmu Komunikasi Universitas Mataram Raih Juara II pada Pemilihan Mahasiswa Berprestasi Tingkat Fakultas</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
+                                Mataram, FHISIP Unram — Mahasiswi Program Studi Ilmu Komunikasi, Khadijah [...]
+                            </p>
+                            <a href="#" class="text-unramBlue font-semibold text-sm hover:text-unramYellow transition mt-auto flex items-center">Baca Selengkapnya <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Berita 2 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group flex flex-col h-full border border-gray-100">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://ilkom.unram.ac.id/wp-content/uploads/2026/02/Mahasiswa-Ilmu-Komunikasi-Raih-Juara-2-Lomba-Canva-Design-Rumah-BUMN-Lombok-Barat.jpeg" alt="Berita 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center text-xs text-gray-500 mb-3 space-x-4">
+                                <span><i class="far fa-calendar-alt mr-1"></i> 15 Feb 2026</span>
+                                <span><i class="far fa-folder mr-1"></i> Prestasi</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-unramBlue transition leading-snug line-clamp-3">
+                                <a href="#">Mahasiswa Ilmu Komunikasi FHISIP Unram Raih Juara 2 Lomba Design Rumah</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
+                                Mataram, FHISIP Unram — Taqiyudin Nabani, mahasiswa Program Studi Ilmu [...]
+                            </p>
+                            <a href="#" class="text-unramBlue font-semibold text-sm hover:text-unramYellow transition mt-auto flex items-center">Baca Selengkapnya <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Berita 3 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group flex flex-col h-full border border-gray-100">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://res.cloudinary.com/ddtgjvetf/image/upload/v1779293245/Gemini_Generated_Image_j0npqvj0npqvj0np_v1btwr.png" alt="Berita 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center text-xs text-gray-500 mb-3 space-x-4">
+                                <span><i class="far fa-calendar-alt mr-1"></i> 21 Mei 2026</span>
+                                <span><i class="far fa-folder mr-1"></i> Ujian Skripsi</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-unramBlue transition leading-snug line-clamp-3">
+                                <a href="#">Sidang Skripsi : Konstruksi Berita Pariwisata Di TVRI</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
+                                Mataram, FHISIP Unram — Bagian paling krusial dalam sebuah penelitian ilmiah adalah kemampuannya menjawab pertanyaan mengapa isu ini penting untuk diteliti pada ruang dan waktu saat ini. Latar belakang skripsi ini berpijak pada sebuah paradoks fundamental...
+                            </p>
+                            <a href="/pendahuluan.html" class="text-unramBlue font-semibold text-sm hover:text-unramYellow transition mt-auto flex items-center">Baca Selengkapnya <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#081f42] text-gray-300 pt-16 pb-8 border-t-4 border-unramYellow mt-auto">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/5/52/LogoUnram.png" alt="Logo Unram" class="w-12 h-12 object-contain">
+                        <div class="flex flex-col justify-center">
+                            <span class="text-gray-400 text-[10px] font-semibold leading-none mb-0.5">Program Studi</span>
+                            <h3 class="text-white font-bold text-base leading-none uppercase font-heading mb-0.5">Ilmu Komunikasi</h3>
+                            <p class="text-unramYellow text-[10px] font-semibold leading-none">Universitas Mataram</p>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6 text-gray-400">
+                        Menjadi program studi ilmu komunikasi yang inklusif, berbasis riset, tanggap terhadap teknologi media, dan berdaya saing global demi memajukan nusa dan bangsa.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#112f5a] flex items-center justify-center hover:bg-unramYellow hover:text-unramBlue transition shadow-lg"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#112f5a] flex items-center justify-center hover:bg-unramYellow hover:text-unramBlue transition shadow-lg"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#112f5a] flex items-center justify-center hover:bg-unramYellow hover:text-unramBlue transition shadow-lg"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 font-heading relative inline-block">
+                        Tautan Universitas
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-unramYellow rounded"></span>
+                    </h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="https://unram.ac.id" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Website Utama UNRAM</a></li>
+                        <li><a href="https://fhisip.unram.ac.id" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Fakultas Hukum, ISIP</a></li>
+                        <li><a href="#" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> E-Learning UNRAM</a></li>
+                        <li><a href="#" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Perpustakaan Pusat</a></li>
+                        <li><a href="#" class="hover:text-unramYellow transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-unramYellow"></i> Pendaftaran Mahasiswa Baru</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 font-heading relative inline-block">
+                        Hubungi Kami
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-unramYellow rounded"></span>
+                    </h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-unramYellow text-lg w-5 text-center"></i>
+                            <span class="leading-relaxed">Gedung Soebiyanto, Kampus Utama UNRAM<br>Jl. Majapahit No. 62 Mataram 83125<br>Nusa Tenggara Barat, Indonesia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-unramYellow text-lg w-5 text-center"></i>
+                            <span>(0376) 232323 / 0370-633007</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-unramYellow text-lg w-5 text-center"></i>
+                            <span>komunikasi@unram.ac.id</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 font-heading relative inline-block">
+                        Lokasi Kampus
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-unramYellow rounded"></span>
+                    </h4>
+                    <div class="w-full h-44 bg-gray-800 rounded-lg overflow-hidden border border-gray-700 relative group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Peta Lokasi" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition duration-300">
+                            <div class="bg-[#081f42]/80 px-4 py-2 rounded text-sm font-bold text-white flex items-center">
+                                <i class="fas fa-map-marked-alt mr-2"></i> Buka Peta
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700/50 pt-8 flex flex-col md:flex-row justify-center items-center text-xs text-gray-500 text-center">
+                <p>&copy; 2026 Program Studi Ilmu Komunikasi Universitas Mataram.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script AOS & Preloader -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const text = "Program Studi Ilmu Komunikasi";
+            const typewriterElement = document.getElementById("typewriter-text");
+            const preloader = document.getElementById("preloader");
+            let i = 0;
+            const speed = 60; // Kecepatan Ngetik
+
+            document.body.style.overflow = 'hidden'; // Matikan scroll sementara
+
+            function typeWriter() {
+                if (i < text.length) {
+                    typewriterElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    // Beri sedikit jeda setelah ngetik kelar
+                    setTimeout(() => {
+                        preloader.style.opacity = '0';
+                        preloader.style.transition = 'opacity 0.8s ease';
+                        
+                        setTimeout(() => {
+                            preloader.style.display = 'none';
+                            document.body.style.overflow = ''; // Hidupkan scroll
+                            
+                            // Beri transisi acak pada elemen yang ada
+                            const aosAnimations = ['fade-up', 'fade-down', 'fade-left', 'fade-right', 'zoom-in', 'zoom-out', 'flip-up'];
+                            const elementsToAnimate = document.querySelectorAll('main > section, main > div, .grid > div, footer > div > div');
+                            
+                            elementsToAnimate.forEach(el => {
+                                if (!el.hasAttribute('data-aos')) {
+                                    const randomAnim = aosAnimations[Math.floor(Math.random() * aosAnimations.length)];
+                                    el.setAttribute('data-aos', randomAnim);
+                                }
+                            });
+                            
+                            AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+                        }, 800);
+                    }, 500);
+                }
+            }
+            setTimeout(typeWriter, 300); // Mulai ngetik setelah render
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const navbarInner = document.getElementById('navbar-inner');
+            
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+                if (navbarInner) {
+                    navbarInner.classList.remove('py-6');
+                    navbarInner.classList.add('py-3');
+                }
+            } else {
+                navbar.classList.remove('shadow-md');
+                if (navbarInner) {
+                    navbarInner.classList.add('py-6');
+                    navbarInner.classList.remove('py-3');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
